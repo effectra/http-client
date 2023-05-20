@@ -3,11 +3,14 @@
 namespace Effectra\Http\Client;
 
 use CurlHandle;
+
 use Effectra\Http\Client\Exception\ClientException;
+
 use Effectra\Http\Message\Request;
 use Effectra\Http\Message\Response;
 use Effectra\Http\Message\Stream;
 use Effectra\Http\Message\Uri;
+
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -68,7 +71,12 @@ class Client implements ClientInterface
             throw new ClientException("An error occurred while processing the request.");
         }
 
-        return new Response($responseCode, $responseHeaders, $responseBody);
+        return new Response(
+           statusCode: $responseCode, 
+           headers: $responseHeaders, 
+           body: $responseBody,
+           reasonPhrase: Response::$statusTexts[$responseCode]
+        );
     }
 
     public function send(RequestInterface $request, array $options = [])
