@@ -44,15 +44,11 @@ You can also use convenience methods like `get`, `post`, `put`, `patch`, `delete
 
 ```php
 use Effectra\Http\Client\Client;
-use Effectra\Http\Message\Request;
-use Effectra\Http\Message\Uri;
 
 $client = new Client();
 
-$client->get('https://api.example.com/users');
-
 // Send the request and get the response
-$response = $client->sendRequest($request);
+$response = $client->get('https://api.example.com/users');
 
 // Access the response status code
 $status = $response->getStatusCode();
