@@ -42,6 +42,31 @@ $body = $response->getBody()->getContents();
 
 You can also use convenience methods like `get`, `post`, `put`, `patch`, `delete`, and `head` to send requests with specific methods.
 
+```php
+use Effectra\Http\Client\Client;
+use Effectra\Http\Message\Request;
+use Effectra\Http\Message\Uri;
+
+$client = new Client();
+
+$client->get('https://api.example.com/users');
+
+// Send the request and get the response
+$response = $client->sendRequest($request);
+
+// Access the response status code
+$status = $response->getStatusCode();
+
+// Access the response headers
+$headers = $response->getHeaders();
+
+// Access the response body as a string
+$body = $response->getBody()->getContents();
+
+// Process the response data as needed
+// ...
+```
+
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests for any improvements or bug fixes you'd like to contribute.
