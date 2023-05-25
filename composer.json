@@ -1,0 +1,23 @@
+{
+    "name": "effectra/http-client",
+    "description": "The Effectra HTTP Client package.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Effectra\\Http\\Client\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mohammed Taha",
+            "email": "bmt.mohammedtaha@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0.2",
+        "effectra/http-message":"1.0",
+        "psr/http-client": "^1.0"
+    }
+}
